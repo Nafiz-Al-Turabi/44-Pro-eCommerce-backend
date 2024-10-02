@@ -17,9 +17,9 @@ const userRegister = async (req, res) => {
         userData.password = hashedPasswprd;
         userData.role = 'user'; //Default role will user
         const result = await usersCollection.insertOne(userData);
-        res.status(200).json({ message: 'User registred successfully.' })
+        res.status(200).json({ message: 'User registred successfully.' });
     } catch (error) {
-        res.status(500).json({ message: 'Registred failed', error })
+        res.status(500).json({ message: 'Registred failed', error });
     }
 };
 
@@ -30,9 +30,9 @@ const userLogin = async (req, res) => {
             return res.status(400).json({ message: 'Email and password are required' });
         };
 
-        const user = await usersCollection.findOne({ email })
+        const user = await usersCollection.findOne({ email });
         if (!user) {
-            return res.status(401).json({ message: "Invalid email or password" })
+            return res.status(401).json({ message: "Invalid email or password" });
         }
         const matchPassword = await bcrypt.compare(password, user.password);
         if (matchPassword) {
