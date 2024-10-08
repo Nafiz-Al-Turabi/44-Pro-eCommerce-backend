@@ -21,4 +21,13 @@ const orders = async (req, res) => {
     }
 }
 
-module.exports = {orders}
+const getOrders = async (req, res) => {
+    try {
+        const OrdersData = await ordersCollection.find().toArray();
+        res.status(200).json(OrdersData)
+    } catch (error) {
+        res.status(500).json({ message: 'Failed to get orders data' })
+    }
+}
+
+module.exports = { orders, getOrders }
