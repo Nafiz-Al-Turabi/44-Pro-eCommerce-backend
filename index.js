@@ -3,10 +3,10 @@ const cors = require('cors');
 require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5000;
-const { connectDB } = require("../config/MongoDB");
-const userRoutes = require('../routes/userRoutes');
-const paymentRoutes = require('../routes/paymentRoutes')
-const orderRoutes = require('../routes/orderRoutes')
+const { connectDB } = require("./config/MongoDB");
+const userRoutes = require('./routes/userRoutes');
+const paymentRoutes = require('./routes/paymentRoutes')
+const orderRoutes = require('./routes/orderRoutes')
 // middleware
 app.use(cors());
 app.use(express.json());
