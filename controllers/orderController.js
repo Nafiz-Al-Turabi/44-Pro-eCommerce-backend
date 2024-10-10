@@ -1,7 +1,6 @@
 const express = require('express');
 const { getDB } = require('../config/MongoDB');
 const ordersCollection = getDB("Ecommerce44pro").collection("orders");
-// const { getOrderFromDb } = require("../service/orderService/orderService")
 const { createOrderIntoDB, getOrderFromDb } = require("../service/orderService/orderService")
 
 
